@@ -1,0 +1,257 @@
+[90m2026-04-19T22:52:53.273+08:00[39m [36m[gateway][39m [36mloading configuration…[39m
+[90m2026-04-19T22:52:53.315+08:00[39m [36m[gateway][39m [36mresolving authentication…[39m
+[90m2026-04-19T22:52:53.344+08:00[39m [36m[gateway][39m [36mstarting...[39m
+[90m2026-04-19T22:53:00.571+08:00[39m [35m[plugins][39m [36mfeishu_doc: Registered feishu_doc, feishu_app_scopes[39m
+[90m2026-04-19T22:53:00.574+08:00[39m [35m[plugins][39m [36mfeishu_chat: Registered feishu_chat tool[39m
+[90m2026-04-19T22:53:00.575+08:00[39m [35m[plugins][39m [36mfeishu_wiki: Registered feishu_wiki tool[39m
+[90m2026-04-19T22:53:00.577+08:00[39m [35m[plugins][39m [36mfeishu_drive: Registered feishu_drive tool[39m
+[90m2026-04-19T22:53:00.609+08:00[39m [35m[plugins][39m [36mfeishu_bitable: Registered bitable tools[39m
+[90m2026-04-19T22:53:00.627+08:00[39m [36m[gateway][39m [36mstarting HTTP server...[39m
+[90m2026-04-19T22:53:00.630+08:00[39m [35m[canvas][39m [36mhost mounted at http://127.0.0.1:18793/__openclaw__/canvas/ (root /Users/Zhuanz/.openclaw/canvas)[39m
+[90m2026-04-19T22:53:00.634+08:00[39m [36m[gateway][39m [36mMCP loopback server listening on http://127.0.0.1:49606/mcp[39m
+[90m2026-04-19T22:53:00.685+08:00[39m [36m[heartbeat][39m [36mstarted[39m
+[90m2026-04-19T22:53:00.687+08:00[39m [32m[health-monitor][39m [36mstarted (interval: 300s, startup-grace: 60s, channel-connect-grace: 120s)[39m
+[90m2026-04-19T22:53:00.696+08:00[39m [36m[gateway][39m [36magent model: minimax/MiniMax-M2.7-highspeed[39m
+[90m2026-04-19T22:53:00.696+08:00[39m [36m[gateway][39m [36mready (3 plugins: active-memory, browser, feishu; 7.4s)[39m
+[90m2026-04-19T22:53:00.696+08:00[39m [36m[gateway][39m [36mlog file: /tmp/openclaw/openclaw-2026-04-19.log[39m
+[90m2026-04-19T22:53:00.698+08:00[39m [36m[gateway][39m [36mstarting channels and sidecars...[39m
+2026-04-19T22:53:00.877+08:00 [info]: [ 'client ready' ]
+[90m2026-04-19T22:53:00.957+08:00[39m [33m[hooks][39m [36mloaded 4 internal hook handlers[39m
+2026-04-19T22:53:12.255+08:00 [info]: [ 'client ready' ]
+[90m2026-04-19T22:53:12.504+08:00[39m [33m[feishu][39m [36mstarting feishu[collect-bot] (mode: websocket)[39m
+[90m2026-04-19T22:53:12.504+08:00[39m [33m[feishu][39m [36mstarting feishu[douyin-strategist] (mode: websocket)[39m
+2026-04-19T22:53:12.505+08:00 [info]: [ 'client ready' ]
+[90m2026-04-19T22:53:12.506+08:00[39m [33m[feishu][39m [36mstarting feishu[general-assistant] (mode: websocket)[39m
+[90m2026-04-19T22:53:12.506+08:00[39m [33m[feishu][39m [36mstarting feishu[jinrong-bot] (mode: websocket)[39m
+2026-04-19T22:53:12.507+08:00 [info]: [ 'client ready' ]
+[90m2026-04-19T22:53:12.507+08:00[39m [33m[feishu][39m [36mstarting feishu[weixin-bot] (mode: websocket)[39m
+2026-04-19T22:53:12.508+08:00 [info]: [ 'client ready' ]
+[90m2026-04-19T22:53:12.509+08:00[39m [33m[feishu][39m [36mstarting feishu[xiaohongshu-bot] (mode: websocket)[39m
+2026-04-19T22:53:12.509+08:00 [info]: [ 'client ready' ]
+[90m2026-04-19T22:53:12.510+08:00[39m [33m[feishu][39m [31mfeishu[general-assistant]: bot info probe timed out after 30000ms; continuing startup[39m
+[90m2026-04-19T22:53:12.511+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: bot open_id resolved: unknown[39m
+[90m2026-04-19T22:53:12.512+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: bot open_id unknown; starting background retry (delays: 60s, 120s, 300s, 600s, 900s)[39m
+[90m2026-04-19T22:53:12.512+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: requireMention group messages stay gated until bot identity recovery succeeds[39m
+[90m2026-04-19T22:53:12.516+08:00[39m [36m[browser/server][39m [36mBrowser control listening on http://127.0.0.1:18795/ (auth=token)[39m
+[90m2026-04-19T22:53:12.537+08:00[39m [35m[plugins][39m [36mfeishu_doc: Registered feishu_doc, feishu_app_scopes[39m
+[90m2026-04-19T22:53:12.538+08:00[39m [35m[plugins][39m [36mfeishu_chat: Registered feishu_chat tool[39m
+[90m2026-04-19T22:53:12.538+08:00[39m [35m[plugins][39m [36mfeishu_wiki: Registered feishu_wiki tool[39m
+[90m2026-04-19T22:53:12.539+08:00[39m [35m[plugins][39m [36mfeishu_drive: Registered feishu_drive tool[39m
+[90m2026-04-19T22:53:12.540+08:00[39m [35m[plugins][39m [36mfeishu_bitable: Registered bitable tools[39m
+[90m2026-04-19T22:53:12.551+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: dedup warmup loaded 71 entries from disk[39m
+2026-04-19T22:53:12.551+08:00 [info]: [ 'event-dispatch is ready' ]
+[90m2026-04-19T22:53:12.555+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: starting WebSocket connection...[39m
+2026-04-19T22:53:12.555+08:00 [info]: [
+  '[ws]',
+  'receive events or callbacks through persistent connection only available in self-build & Feishu app, Configured in:\n' +
+    '        Developer Console(开发者后台) \n' +
+    '          ->\n' +
+    '        Events and Callbacks(事件与回调)\n' +
+    '          -> \n' +
+    '        Mode of event/callback subscription(订阅方式)\n' +
+    '          -> \n' +
+    '        Receive events/callbacks through persistent connection(使用 长连接 接收事件/回调)'
+]
+[90m2026-04-19T22:53:12.556+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: WebSocket client started[39m
+[90m2026-04-19T22:53:13.748+08:00[39m [33m[feishu][39m [36mfeishu[collect-bot]: bot open_id resolved: ou_4942e40af88fcbac2eb3151540b55e4c[39m
+[90m2026-04-19T22:53:13.753+08:00[39m [33m[feishu][39m [36mfeishu[collect-bot]: dedup warmup loaded 25 entries from disk[39m
+2026-04-19T22:53:13.754+08:00 [info]: [ 'event-dispatch is ready' ]
+[90m2026-04-19T22:53:13.756+08:00[39m [33m[feishu][39m [36mfeishu[collect-bot]: starting WebSocket connection...[39m
+2026-04-19T22:53:13.757+08:00 [info]: [
+  '[ws]',
+  'receive events or callbacks through persistent connection only available in self-build & Feishu app, Configured in:\n' +
+    '        Developer Console(开发者后台) \n' +
+    '          ->\n' +
+    '        Events and Callbacks(事件与回调)\n' +
+    '          -> \n' +
+    '        Mode of event/callback subscription(订阅方式)\n' +
+    '          -> \n' +
+    '        Receive events/callbacks through persistent connection(使用 长连接 接收事件/回调)'
+]
+[90m2026-04-19T22:53:13.758+08:00[39m [33m[feishu][39m [36mfeishu[collect-bot]: WebSocket client started[39m
+[90m2026-04-19T22:53:14.237+08:00[39m [33m[feishu][39m [36mfeishu[weixin-bot]: bot open_id resolved: ou_7024b0c543a5f8fdb853c39d1da0b576[39m
+[90m2026-04-19T22:53:14.240+08:00[39m [33m[feishu][39m [36mfeishu[weixin-bot]: dedup warmup loaded 3 entries from disk[39m
+2026-04-19T22:53:14.241+08:00 [info]: [ 'event-dispatch is ready' ]
+[90m2026-04-19T22:53:14.243+08:00[39m [33m[feishu][39m [36mfeishu[weixin-bot]: starting WebSocket connection...[39m
+2026-04-19T22:53:14.244+08:00 [info]: [
+  '[ws]',
+  'receive events or callbacks through persistent connection only available in self-build & Feishu app, Configured in:\n' +
+    '        Developer Console(开发者后台) \n' +
+    '          ->\n' +
+    '        Events and Callbacks(事件与回调)\n' +
+    '          -> \n' +
+    '        Mode of event/callback subscription(订阅方式)\n' +
+    '          -> \n' +
+    '        Receive events/callbacks through persistent connection(使用 长连接 接收事件/回调)'
+]
+[90m2026-04-19T22:53:14.246+08:00[39m [33m[feishu][39m [36mfeishu[weixin-bot]: WebSocket client started[39m
+[90m2026-04-19T22:53:14.247+08:00[39m [33m[feishu][39m [36mfeishu[xiaohongshu-bot]: bot open_id resolved: ou_30161fdcdce2dcd3d33f007b34f99b28[39m
+[90m2026-04-19T22:53:14.248+08:00[39m [33m[feishu][39m [36mfeishu[douyin-strategist]: bot open_id resolved: ou_3533aca843b0f7d91ab80353054fc4a1[39m
+[90m2026-04-19T22:53:14.249+08:00[39m [33m[feishu][39m [36mfeishu[jinrong-bot]: bot open_id resolved: ou_53be810cf50544d5250b165e62c6006c[39m
+2026-04-19T22:53:14.250+08:00 [info]: [ 'event-dispatch is ready' ]
+[90m2026-04-19T22:53:14.251+08:00[39m [33m[feishu][39m [36mfeishu[xiaohongshu-bot]: starting WebSocket connection...[39m
+2026-04-19T22:53:14.252+08:00 [info]: [
+  '[ws]',
+  'receive events or callbacks through persistent connection only available in self-build & Feishu app, Configured in:\n' +
+    '        Developer Console(开发者后台) \n' +
+    '          ->\n' +
+    '        Events and Callbacks(事件与回调)\n' +
+    '          -> \n' +
+    '        Mode of event/callback subscription(订阅方式)\n' +
+    '          -> \n' +
+    '        Receive events/callbacks through persistent connection(使用 长连接 接收事件/回调)'
+]
+[90m2026-04-19T22:53:14.253+08:00[39m [33m[feishu][39m [36mfeishu[xiaohongshu-bot]: WebSocket client started[39m
+2026-04-19T22:53:14.254+08:00 [info]: [ 'event-dispatch is ready' ]
+[90m2026-04-19T22:53:14.255+08:00[39m [33m[feishu][39m [36mfeishu[douyin-strategist]: starting WebSocket connection...[39m
+2026-04-19T22:53:14.255+08:00 [info]: [
+  '[ws]',
+  'receive events or callbacks through persistent connection only available in self-build & Feishu app, Configured in:\n' +
+    '        Developer Console(开发者后台) \n' +
+    '          ->\n' +
+    '        Events and Callbacks(事件与回调)\n' +
+    '          -> \n' +
+    '        Mode of event/callback subscription(订阅方式)\n' +
+    '          -> \n' +
+    '        Receive events/callbacks through persistent connection(使用 长连接 接收事件/回调)'
+]
+[90m2026-04-19T22:53:14.256+08:00[39m [33m[feishu][39m [36mfeishu[douyin-strategist]: WebSocket client started[39m
+[90m2026-04-19T22:53:14.257+08:00[39m [33m[feishu][39m [36mfeishu[jinrong-bot]: dedup warmup loaded 19 entries from disk[39m
+2026-04-19T22:53:14.258+08:00 [info]: [ 'event-dispatch is ready' ]
+[90m2026-04-19T22:53:14.258+08:00[39m [33m[feishu][39m [36mfeishu[jinrong-bot]: starting WebSocket connection...[39m
+2026-04-19T22:53:14.259+08:00 [info]: [
+  '[ws]',
+  'receive events or callbacks through persistent connection only available in self-build & Feishu app, Configured in:\n' +
+    '        Developer Console(开发者后台) \n' +
+    '          ->\n' +
+    '        Events and Callbacks(事件与回调)\n' +
+    '          -> \n' +
+    '        Mode of event/callback subscription(订阅方式)\n' +
+    '          -> \n' +
+    '        Receive events/callbacks through persistent connection(使用 长连接 接收事件/回调)'
+]
+[90m2026-04-19T22:53:14.260+08:00[39m [33m[feishu][39m [36mfeishu[jinrong-bot]: WebSocket client started[39m
+2026-04-19T22:53:15.782+08:00 [info]: [ '[ws]', 'ws client ready' ]
+2026-04-19T22:53:15.849+08:00 [info]: [ '[ws]', 'ws client ready' ]
+2026-04-19T22:53:15.994+08:00 [info]: [ '[ws]', 'ws client ready' ]
+2026-04-19T22:53:16.002+08:00 [info]: [ '[ws]', 'ws client ready' ]
+2026-04-19T22:53:16.057+08:00 [info]: [ '[ws]', 'ws client ready' ]
+2026-04-19T22:53:16.075+08:00 [info]: [ '[ws]', 'ws client ready' ]
+[90m2026-04-19T22:54:14.026+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: bot open_id recovered via background retry: ou_8a738ba829543d4e5cda8010cff0cddf[39m
+[90m2026-04-19T23:00:03.084+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: received message from ou_fa2405dda973c67f74ac48e430d594b9 in oc_3befbd8530cb5d24b9ef5f93f7eefe74 (p2p)[39m
+[90m2026-04-19T23:00:03.092+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: Feishu[general-assistant] DM from ou_fa2405dda973c67f74ac48e430d594b9: 你的工作区域在哪[39m
+[90m2026-04-19T23:00:03.184+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: dispatching to agent (session=agent:general-assistant:main)[39m
+[90m2026-04-19T23:00:04.447+08:00[39m [35m[plugins][39m [36mfeishu_doc: Registered feishu_doc, feishu_app_scopes[39m
+[90m2026-04-19T23:00:04.448+08:00[39m [35m[plugins][39m [36mfeishu_chat: Registered feishu_chat tool[39m
+[90m2026-04-19T23:00:04.449+08:00[39m [35m[plugins][39m [36mfeishu_wiki: Registered feishu_wiki tool[39m
+[90m2026-04-19T23:00:04.450+08:00[39m [35m[plugins][39m [36mfeishu_drive: Registered feishu_drive tool[39m
+[90m2026-04-19T23:00:04.452+08:00[39m [35m[plugins][39m [36mfeishu_bitable: Registered bitable tools[39m
+[90m2026-04-19T23:00:11.479+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant] Started streaming: cardId=7630485310158490592, messageId=om_x100b517a91b8d4a0c356e79a4e03a0d[39m
+[90m2026-04-19T23:00:12.033+08:00[39m [34m[bundle-mcp][39m [33mfailed to start server "playwright-browser" (node /tmp/playwright-browser-skill-macos-linux-v2.1.0/dist/mcp-server.js): McpError: MCP error -32000: Connection closed[39m
+[90m2026-04-19T23:00:12.200+08:00[39m [35m[plugins][39m [36mactive-memory: agent=general-assistant session=agent:general-assistant:main start timeoutMs=5000 queryChars=1241[39m
+[90m2026-04-19T23:00:12.410+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.411+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.411+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.411+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.411+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.412+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.412+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.412+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.413+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.413+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.413+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.413+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.414+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.415+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.417+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.417+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.417+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.418+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.418+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.418+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.418+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.419+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.419+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:00:12.848+08:00[39m [34m[bundle-mcp][39m [33mfailed to start server "playwright-browser" (node /tmp/playwright-browser-skill-macos-linux-v2.1.0/dist/mcp-server.js): McpError: MCP error -32000: Connection closed[39m
+[90m2026-04-19T23:00:17.350+08:00[39m [33m[agent/embedded][39m [33membedded run failover decision: runId=active-memory-mo5w7g2x-d29d483f stage=assistant decision=surface_error reason=timeout provider=minimax/MiniMax-M2.7-highspeed profile=-[39m
+[90m2026-04-19T23:00:17.371+08:00[39m [35m[plugins][39m [36mactive-memory: agent=general-assistant session=agent:general-assistant:main done status=ok elapsedMs=5172 summaryChars=129[39m
+[90m2026-04-19T23:00:31.611+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant] Closed streaming: cardId=7630485310158490592[39m
+[90m2026-04-19T23:00:31.612+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: dispatch complete (queuedFinal=true, replies=1)[39m
+2026-04-19T23:08:54.126+08:00 [info]: [ '[ws]', 'reconnect' ]
+[90m2026-04-19T23:09:53.711+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: received message from ou_fa2405dda973c67f74ac48e430d594b9 in oc_3befbd8530cb5d24b9ef5f93f7eefe74 (p2p)[39m
+[90m2026-04-19T23:09:53.719+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: Feishu[general-assistant] DM from ou_fa2405dda973c67f74ac48e430d594b9: 这个项目的文件目录在哪里？[39m
+[90m2026-04-19T23:09:53.826+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: dispatching to agent (session=agent:general-assistant:main)[39m
+[90m2026-04-19T23:09:55.279+08:00[39m [34m[bundle-mcp][39m [33mfailed to start server "playwright-browser" (node /tmp/playwright-browser-skill-macos-linux-v2.1.0/dist/mcp-server.js): McpError: MCP error -32000: Connection closed[39m
+[90m2026-04-19T23:09:55.306+08:00[39m [35m[plugins][39m [36mactive-memory: agent=general-assistant session=agent:general-assistant:main start timeoutMs=5000 queryChars=1074[39m
+[90m2026-04-19T23:09:55.460+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.460+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.460+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.461+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.461+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.461+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.461+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.462+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.462+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.462+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.462+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.463+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.463+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.463+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.463+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.463+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.464+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.464+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.464+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.464+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.465+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.465+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.465+08:00[39m [36m[skills][39m [33mSkipping skill path that resolves outside its configured root.[39m
+[90m2026-04-19T23:09:55.599+08:00[39m [34m[bundle-mcp][39m [33mfailed to start server "playwright-browser" (node /tmp/playwright-browser-skill-macos-linux-v2.1.0/dist/mcp-server.js): McpError: MCP error -32000: Connection closed[39m
+[90m2026-04-19T23:09:56.625+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant] Started streaming: cardId=7630487836446756047, messageId=om_x100b517b4a9d20a4c3fd29129016aee[39m
+[90m2026-04-19T23:10:00.381+08:00[39m [33m[agent/embedded][39m [33membedded run failover decision: runId=active-memory-mo5wjy0b-ac0d3280 stage=assistant decision=surface_error reason=timeout provider=minimax/MiniMax-M2.7-highspeed profile=-[39m
+[90m2026-04-19T23:10:00.383+08:00[39m [35m[plugins][39m [36mactive-memory: agent=general-assistant session=agent:general-assistant:main done status=ok elapsedMs=5077 summaryChars=129[39m
+[90m2026-04-19T23:10:13.420+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant] Closed streaming: cardId=7630487836446756047[39m
+[90m2026-04-19T23:10:13.422+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: dispatch complete (queuedFinal=true, replies=1)[39m
+[90m2026-04-19T23:15:46.925+08:00[39m [31m[diagnostic][39m [31mlane task error: lane=main durationMs=10624 error="Error: session file locked (timeout 10000ms): pid=11451 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock"[39m
+[90m2026-04-19T23:15:46.927+08:00[39m [31m[diagnostic][39m [31mlane task error: lane=session:agent:general-assistant:main durationMs=10629 error="Error: session file locked (timeout 10000ms): pid=11451 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock"[39m
+[90m2026-04-19T23:15:46.940+08:00[39m [34m[model-fallback/decision][39m [33mmodel fallback decision: decision=candidate_failed requested=minimax/MiniMax-M2.7-highspeed candidate=minimax/MiniMax-M2.7-highspeed reason=timeout next=none detail=session file locked (timeout 10000ms): pid=11451 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock[39m
+2026-04-19T23:15:46.994+08:00 Embedded agent failed before reply: session file locked (timeout 10000ms): pid=11451 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock | session file locked (timeout 10000ms): pid=11451 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock
+[90m2026-04-19T23:19:32.713+08:00[39m [33m[feishu][39m [36mfeishu[jinrong-bot]: received message from ou_deb5ef6ac6cf629de2c47f356a3939ca in oc_2d1f0c7a825949bea7266fd8224e741b (p2p)[39m
+[90m2026-04-19T23:19:32.717+08:00[39m [33m[feishu][39m [36mfeishu[jinrong-bot]: Feishu[jinrong-bot] DM from ou_deb5ef6ac6cf629de2c47f356a3939ca: B. 定时任务推送 ✅ 完成！ 定时任务已设置：每天 09:00 自动执行 quinn_cron.py 全部完成总结 任务 状态 A. A股数据 (akshare) ✅ 已集成（可选模块，速度慢） B. 定时任务推送 ✅ 每天 09:00 自动生成 我指的定时任务是这一个定时任务，是你自己的定时任务，你不要管别人。[39m
+[90m2026-04-19T23:19:32.910+08:00[39m [33m[feishu][39m [36mfeishu[jinrong-bot]: dispatching to agent (session=agent:general-assistant:main)[39m
+[90m2026-04-19T23:19:39.280+08:00[39m [33m[feishu][39m [36mfeishu[jinrong-bot] Started streaming: cardId=7630490340743613618, messageId=om_x100b517b667550a8b369e3bf57aedb7[39m
+[90m2026-04-19T23:19:46.598+08:00[39m [31m[diagnostic][39m [31mlane task error: lane=main durationMs=12025 error="Error: session file locked (timeout 10000ms): pid=19843 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock"[39m
+[90m2026-04-19T23:19:46.599+08:00[39m [31m[diagnostic][39m [31mlane task error: lane=session:agent:general-assistant:main durationMs=12027 error="Error: session file locked (timeout 10000ms): pid=19843 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock"[39m
+[90m2026-04-19T23:19:46.610+08:00[39m [34m[model-fallback/decision][39m [33mmodel fallback decision: decision=candidate_failed requested=minimax/MiniMax-M2.7-highspeed candidate=minimax/MiniMax-M2.7-highspeed reason=timeout next=none detail=session file locked (timeout 10000ms): pid=19843 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock[39m
+2026-04-19T23:19:46.661+08:00 Embedded agent failed before reply: session file locked (timeout 10000ms): pid=19843 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock | session file locked (timeout 10000ms): pid=19843 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock
+[90m2026-04-19T23:19:50.983+08:00[39m [33m[feishu][39m [36mfeishu[jinrong-bot] Closed streaming: cardId=7630490340743613618[39m
+[90m2026-04-19T23:19:50.985+08:00[39m [33m[feishu][39m [36mfeishu[jinrong-bot]: dispatch complete (queuedFinal=true, replies=1)[39m
+[90m2026-04-19T23:20:55.192+08:00[39m [34m[reload][39m [36mconfig change detected; evaluating reload (agents.list)[39m
+[90m2026-04-19T23:20:55.205+08:00[39m [34m[reload][39m [36mconfig hot reload applied (agents.list)[39m
+[90m2026-04-19T23:22:19.282+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: received message from ou_fa2405dda973c67f74ac48e430d594b9 in oc_3befbd8530cb5d24b9ef5f93f7eefe74 (p2p)[39m
+[90m2026-04-19T23:22:19.285+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: Feishu[general-assistant] DM from ou_fa2405dda973c67f74ac48e430d594b9: 继续、[39m
+[90m2026-04-19T23:22:19.451+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: dispatching to agent (session=agent:general-assistant:main)[39m
+[90m2026-04-19T23:22:23.363+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant] Started streaming: cardId=7630491045134175173, messageId=om_x100b517b7c376ca4c3a27e00286c72e[39m
+[90m2026-04-19T23:22:36.546+08:00[39m [31m[diagnostic][39m [31mlane task error: lane=main durationMs=15101 error="Error: session file locked (timeout 10000ms): pid=19843 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock"[39m
+[90m2026-04-19T23:22:36.548+08:00[39m [31m[diagnostic][39m [31mlane task error: lane=session:agent:general-assistant:main durationMs=15103 error="Error: session file locked (timeout 10000ms): pid=19843 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock"[39m
+[90m2026-04-19T23:22:36.551+08:00[39m [34m[model-fallback/decision][39m [33mmodel fallback decision: decision=candidate_failed requested=minimax/MiniMax-M2.7-highspeed candidate=minimax/MiniMax-M2.7-highspeed reason=timeout next=none detail=session file locked (timeout 10000ms): pid=19843 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock[39m
+2026-04-19T23:22:36.601+08:00 Embedded agent failed before reply: session file locked (timeout 10000ms): pid=19843 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock | session file locked (timeout 10000ms): pid=19843 /Users/Zhuanz/.openclaw/agents/general-assistant/sessions/34e724e4-7ea3-41ca-a0ce-2f0bdf13fc65.jsonl.lock
+[90m2026-04-19T23:22:41.491+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant] Closed streaming: cardId=7630491045134175173[39m
+[90m2026-04-19T23:22:41.491+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: dispatch complete (queuedFinal=true, replies=1)[39m
+[90m2026-04-19T23:23:06.374+08:00[39m [36m[gateway][39m [36msignal SIGTERM received[39m
+[90m2026-04-19T23:23:06.376+08:00[39m [36m[gateway][39m [36mreceived SIGTERM; shutting down[39m
+[90m2026-04-19T23:23:06.614+08:00[39m [33m[feishu][39m [36mfeishu[collect-bot]: abort signal received, stopping[39m
+2026-04-19T23:23:06.616+08:00 [info]: [ '[ws]', 'ws client closed manually' ]
+[90m2026-04-19T23:23:06.618+08:00[39m [33m[feishu][39m [36mfeishu[douyin-strategist]: abort signal received, stopping[39m
+2026-04-19T23:23:06.619+08:00 [info]: [ '[ws]', 'ws client closed manually' ]
+[90m2026-04-19T23:23:06.620+08:00[39m [33m[feishu][39m [36mfeishu[general-assistant]: abort signal received, stopping[39m
+2026-04-19T23:23:06.620+08:00 [info]: [ '[ws]', 'ws client closed manually' ]
+[90m2026-04-19T23:23:06.622+08:00[39m [33m[feishu][39m [36mfeishu[jinrong-bot]: abort signal received, stopping[39m
+2026-04-19T23:23:06.623+08:00 [info]: [ '[ws]', 'ws client closed manually' ]
+[90m2026-04-19T23:23:06.624+08:00[39m [33m[feishu][39m [36mfeishu[weixin-bot]: abort signal received, stopping[39m
+2026-04-19T23:23:06.624+08:00 [info]: [ '[ws]', 'ws client closed manually' ]
+[90m2026-04-19T23:23:06.625+08:00[39m [33m[feishu][39m [36mfeishu[xiaohongshu-bot]: abort signal received, stopping[39m
+2026-04-19T23:23:06.625+08:00 [info]: [ '[ws]', 'ws client closed manually' ]
+[90m2026-04-19T23:23:06.629+08:00[39m [34m[gmail-watcher][39m [36mgmail watcher stopped[39m
+[90m2026-04-19T23:23:06.630+08:00[39m [36m[gateway][39m [36msignal SIGTERM received[39m
+[90m2026-04-19T23:23:06.632+08:00[39m [36m[gateway][39m [36mreceived SIGTERM during shutdown; ignoring[39m

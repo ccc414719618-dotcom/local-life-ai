@@ -108,16 +108,16 @@ http://localhost:3000/locate?shop_id=jin_001
 
 ## ⚙️ API 配置
 
-### 本地开发
-默认连接本地服务注册平台：
+### API 地址
+服务已部署在 Vercel 上：
 ```
-http://localhost:3000
+https://local-life-registry.vercel.app
 ```
 
 ### 修改 API 地址
 如果服务部署在其他地址，编辑 SKILL.md 中的 `BASE` 变量：
 ```javascript
-const BASE = "http://你的服务器地址:端口";
+const BASE = "https://local-life-registry.vercel.app";
 ```
 
 ---

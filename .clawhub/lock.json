@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": {
+    "bilibili-hot-monitor": {
+      "version": "1.0.21",
+      "installedAt": 1774481206998
+    },
+    "bilibili-analytics": {
+      "version": "1.0.0",
+      "installedAt": 1774481389539
+    }
+  }
+}

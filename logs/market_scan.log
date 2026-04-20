@@ -1,0 +1,15 @@
+[2026-04-20 13:34:34] 市场扫描开始
+[2026-04-20 13:34:34] 市场扫描完成
+[2026-04-20 22:38:28] 市场扫描开始
+[2026-04-20 22:38:28] 市场扫描完成
+[2026-04-20 22:42] Market scan completed in 14.5s
+  Errors: BTC/ETH/SOL: 'DataFetcher' object has no attribute 'get_crypto_price'; 美股指数: 'change_pct'; 恐慌贪婪: 'DataFetcher' object has no attribute 'get_fear_greed'
+[2026-04-20 22:43] Market scan completed in 25.4s
+[2026-04-20 22:44] Market scan completed in 24.2s
+[2026-04-20 22:45] Market scan completed in 24.2s
+[2026-04-20 22:47] Market scan completed in 16.6s
+[2026-04-20 22:48] 完成，耗时 16.4s | 报告: /Volumes/1TB/openclaw/jinrong-bot/reports/market_scan_20260420.txt
+[2026-04-20 22:53] 完成，耗时 16.9s | 报告: /Volumes/1TB/openclaw/jinrong-bot/reports/market_scan_20260420.txt
+[2026-04-20 23:34] 完成，耗时 27.8s
+[2026-04-20 23:35] 完成，耗时 28.9s
+[2026-04-20 23:55] 完成，耗时 34.6s

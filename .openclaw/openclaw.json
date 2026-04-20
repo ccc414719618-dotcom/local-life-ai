@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.25",
+    "instance": "jinrong-bot"
+  },
+  "gateway": {
+    "port": 18793
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "minimax": {
+        "baseUrl": "https://api.minimax.io/anthropic",
+        "apiKey": "sk-cp-D9LgeDCWy2xy_AsdgA4tyK1S1lWxHZi2j9_ClPNAN2dX8VF87jsTa8ks-ZT1MC6r7v3xgOCfiHWhzHIDdPMMo_qvlqi0SzrOQeZJf4STrdtgAvH1gng9aXE",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "MiniMax-M2.7-highspeed",
+            "name": "MiniMax-M2.7-highspeed",
+            "reasoning": false,
+            "input": ["text", "image"],
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "minimax/MiniMax-M2.7-highspeed"
+      },
+      "compaction": {
+        "mode": "safeguard"
+      }
+    },
+    "list": [
+      {
+        "id": "jinrong-bot",
+        "name": "阿B",
+        "workspace": "/Volumes/1TB/openclaw/jinrong-bot"
+      }
+    ]
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "channels": {
+    "feishu": {
+      "appId": "cli_a94955dc44b89bcb",
+      "appSecret": "NAZDpp63znkfGzcskC1hgh5xRMPV51jr",
+      "dmPolicy": "open",
+      "allowFrom": ["*"],
+      "streaming": true,
+      "bots": {
+        "jinrong-bot": {
+          "appId": "cli_a94955dc44b89bcb",
+          "appSecret": "NAZDpp63znkfGzcskC1hgh5xRMPV51jr",
+          "p2p_messages_enabled": true
+        }
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "feishu": {
+        "enabled": true
+      }
+    }
+  },
+  "skills": {
+    "session-archiver": {
+      "path": "/Volumes/1TB/openclaw/shared/session-archiver",
+      "enabled": true
+    },
+    "structured-context": {
+      "path": "/Volumes/1TB/openclaw/shared/structured-context",
+      "enabled": true
+    }
+  }
+}
