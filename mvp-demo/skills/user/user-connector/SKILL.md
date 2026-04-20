@@ -1,154 +1,161 @@
-# 用户端 Skill - 本地生活 AI 助理
+# 本地生活 AI - 用户端 Skill
 
-## 身份
+> 让 AI 帮助用户发现附近好店、排队、预约
 
-你是一个**本地生活 AI 助理**，帮助用户发现附近的好店、排队、预约。
+---
 
-## 快速开始
+## 🎯 这是什么？
 
-**每次用户想找店/排队/预约时，按以下步骤：**
+这是一个 **AI Skill**，安装后你的 AI 就能：
+- 🔍 搜索附近的商家（餐厅、火锅、面馆等）
+- 📋 查看实时排队情况
+- 🎫 线上取号
+- 📅 预约座位
 
-### Step 1: 了解需求
-用户想要什么？
-- 找店：直接到 Step 2
-- 排队/预约：先问清楚哪家店
+---
 
-### Step 2: 搜索服务
-用 Python 调用 MCP API：
+## 📦 安装方式
 
-```python
-import urllib.request
-import json
-import urllib.parse
-
-BASE = "http://localhost:3000"
-
-def search(query):
-    encoded = urllib.parse.quote(query)
-    url = f"{BASE}/mcp/search?q={encoded}"
-    with urllib.request.urlopen(url) as r:
-        return json.loads(r.read())
+### 方式一：一键安装（推荐）
+```
+skill install @local-life-ai/user-connector
 ```
 
-**示例**：
-```python
-result = search("饺子")
-print(f"找到 {result['total']} 家")
-for s in result['results']:
-    print(f"  - {s['name']}: {s['location']['address']}")
+### 方式二：手动安装
+1. 下载 SKILL.md 文件
+2. 放入你的 AI Agent 的 skills 目录
+3. AI 重启后自动加载
+
+---
+
+## 🚀 快速开始
+
+安装成功后，告诉 AI：
+
+**"我想找附近的饺子馆"**
+
+AI 会自动调用本地生活平台 API，搜索附近的饺子馆并返回结果。
+
+---
+
+## 💬 对话示例
+
+### 示例 1：找店
+**你说**：帮我找附近的饺子馆
+
+**AI 回答**：
+```
+找到了 2 家饺子馆：
+
+✅ 金谷园饺子馆
+   📍 海淀区学院路甲38号
+   🌟 低油脂，适合减肥
+   🕐 营业中
+
+✅ 兴华家常菜
+   📍 海淀区语言大学附近
+   🌟 家常菜、经济实惠
+   🕐 营业中
 ```
 
-### Step 3: 查看排队
-```python
-def get_queue(service_id):
-    payload = json.dumps({"tool": "get_queue_status"}).encode()
-    req = urllib.request.Request(
-        f"{BASE}/mcp/{service_id}/call",
-        data=payload,
-        headers={"Content-Type": "application/json"}
-    )
-    with urllib.request.urlopen(req) as r:
-        return json.loads(r.read())['result']
+### 示例 2：取号
+**你说**：帮我在金谷园排个号，2位
 
-q = get_queue("jin_001")
-print(f"等待: {q['current_wait']} 桌, 预计 {q['avg_wait_minutes']} 分钟")
+**AI 回答**：
+```
+✅ 取号成功！
+🪑 排队号：A32
+⏱️ 预计等待：7分钟
+📍 地点：海淀区学院路甲38号
 ```
 
-### Step 4: 取号
-```python
-def take_queue(service_id, table_type_id=1, people_count=2):
-    payload = json.dumps({
-        "tool": "take_queue_number",
-        "parameters": {
-            "table_type_id": table_type_id,
-            "people_count": people_count
-        }
-    }).encode()
-    req = urllib.request.Request(
-        f"{BASE}/mcp/{service_id}/call",
-        data=payload,
-        headers={"Content-Type": "application/json"}
-    )
-    with urllib.request.urlopen(req) as r:
-        return json.loads(r.read())['result']
+### 示例 3：预约
+**你说**：我想预约兴华家常菜，明天晚上7点，3位
 
-r = take_queue("jin_001", 1, 2)
-print(f"排队号: {r['queue_number']}, 预计等待: {r['estimated_wait_minutes']} 分钟")
+**AI 回答**：
+```
+✅ 预约成功！
+🪑 预约号：B20260421001
+📅 时间：2026-04-21 19:00
+👥 人数：3位
+🏠 地点：海淀区语言大学附近
 ```
 
-### Step 5: 预约
-```python
-def book(service_id, date, time, people_count=2):
-    payload = json.dumps({
-        "tool": "book_table",
-        "parameters": {
-            "date": date,  # "2024-04-21"
-            "time": time,  # "19:00"
-            "people_count": people_count
-        }
-    }).encode()
-    req = urllib.request.Request(
-        f"{BASE}/mcp/{service_id}/call",
-        data=payload,
-        headers={"Content-Type": "application/json"}
-    )
-    with urllib.request.urlopen(req) as r:
-        return json.loads(r.read())['result']
+---
 
-r = book("jin_001", "2026-04-21", "19:00", 2)
-print(f"预约成功! ID: {r['booking_id']}")
+## ⚙️ API 配置
+
+### 本地开发
+默认连接本地服务注册平台：
+```
+http://localhost:3000
 ```
 
-## 常用 service_id
-
-| 店铺 | service_id |
-|------|------------|
-| 金谷园饺子馆 | jin_001 |
-| 宏缘火锅 | hong_001 |
-| 季多西面馆 | ji_001 |
-| 兴华家常菜 | xin_001 |
-
-## 健康偏好
-
-读取用户配置，过滤结果：
-```python
-import json
-with open("/Users/Zhuanz/.config/local-life-ai/user-config.json") as f:
-    user = json.load(f)
-    print(f"用户: {user['name']}")
-    print(f"饮食偏好: {user['diet']}")
-    print(f"过敏原: {user['allergens']}")
+### 修改 API 地址
+如果服务部署在其他地址，编辑 SKILL.md 中的 `BASE` 变量：
+```javascript
+const BASE = "http://你的服务器地址:端口";
 ```
 
-## 示例对话
+---
 
-**用户**：帮我找附近的饺子馆
+## 🏪 支持的商家
 
-**AI**：
-```python
-result = search("饺子")
-# 找到 2 家饺子馆
+| 商家 | service_id | 类型 | 特色 |
+|------|------------|------|------|
+| 金谷园饺子馆 | `jin_001` | 饺子 | 低油脂、减肥友好 |
+| 宏缘火锅 | `hong_001` | 火锅 | 鸳鸯锅、包间 |
+| 季多西面馆 | `ji_001` | 面馆 | 现拉面、手擀面 |
+| 兴华家常菜 | `xin_001` | 家常菜 | 经济实惠 |
+
+---
+
+## 🔧 技术细节
+
+### API 端点
+| 功能 | 端点 |
+|------|------|
+| 搜索商家 | `GET /mcp/search?q=关键词` |
+| 查看排队 | `POST /mcp/{service_id}/call` |
+| 取号 | `POST /mcp/{service_id}/call` |
+| 预约 | `POST /mcp/{service_id}/call` |
+
+### 调用示例
+```bash
+# 搜索商家
+curl "http://localhost:3000/mcp/search?q=火锅"
+
+# 查看排队
+curl -X POST http://localhost:3000/mcp/jin_001/call \
+  -H "Content-Type: application/json" \
+  -d '{"tool":"get_queue_status","parameters":{}}'
 ```
 
-✅ **金谷园饺子馆** - 海淀区北邮店，距离 1.4km
-   - 特色：低油脂，适合减肥人士
-   - 服务：排队、堂食、外卖
+---
 
-**用户**：帮我在金谷园排个号，2位
+## 📁 文件结构
 
-**AI**：
-```python
-r = take_queue("jin_001", 1, 2)
+```
+user-connector/
+├── SKILL.md      # 本文件 - Skill 定义
+├── install.sh    # 安装脚本
+├── llai         # CLI 工具（可选）
+└── skill.json    # Skill 元数据
 ```
 
-✅ **取号成功！**
-- 排队号：**A32**
-- 预计等待：**7 分钟**
-- 地点：海淀区新地址
+---
 
-## 注意事项
+## 🤝 加入我们
 
-- API 地址：`http://localhost:3000`
-- 日期格式：`YYYY-MM-DD`
-- 时间格式：`HH:MM`
-- 如果排队满了，API 会返回错误，提示用户换时间或换店
+如果你也是 AI 开发者，欢迎：
+- ⭐ Star 本项目
+- 🐛 提交 Bug
+- 📝 完善文档
+
+**GitHub**: https://github.com/ccc414719618-dotcom/local-life-ai
+
+---
+
+## 📄 License
+
+MIT
