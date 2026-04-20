@@ -47,6 +47,32 @@ skill install @local-life-ai/merchant-connector
 
 ---
 
+## 🍜 餐饮店家自建 Skill
+
+如果你想创建**完全自定义**的商家 AI Skill，可以用 `restaurant-skill-builder` 工具：
+
+**功能**：
+| 功能 | 说明 |
+|------|------|
+| 🏪 门店信息 | 地址、营业时间、联系方式 |
+| 🍽️ 外卖配送 | 配送范围、平台 |
+| 📶 Wi-Fi | 密码、连接方式 |
+| 🎫 美团排队 | 在线取号、查进度、取消（可选） |
+
+**使用方式**：
+```bash
+# 克隆工具
+git clone https://github.com/ccc414719618-dotcom/restaurant-skill-builder.git \
+  ~/.claude/skills/restaurant-skill-builder/
+
+# 告诉 AI 帮你创建
+# “帮我创建一个餐饮 Skill”
+```
+
+**详细文档**：[tools/restaurant-skill-builder/README.md](tools/restaurant-skill-builder/README.md)
+
+---
+
 ## 🚀 快速启动
 
 ### 1. 克隆仓库
@@ -168,6 +194,15 @@ mvp-demo/
 │       ├── hong-yuan-hotpot/      # 宏缘火锅
 │       ├── ji-dong-xi-noodles/    # 季多西面馆
 │       └── xing-hua-restaurant/   # 兴华家常菜
+│
+├── tools/                        # 🛠️ 商家工具
+│   └── restaurant-skill-builder/ # 🍜 餐饮店家 AI Skill 创建工具
+│       ├── SKILL.md            # Skill 定义
+│       ├── skill.json          # 元数据
+│       ├── README.md           # 使用说明
+│       ├── scripts/
+│       │   └── init_skill.py   # 交互式初始化脚本
+│       └── mcp_server_template/ # MCP 服务端模板
 │
 ├── registry/                     # 🌐 服务注册平台
 │   ├── server.js               # Express 服务器
