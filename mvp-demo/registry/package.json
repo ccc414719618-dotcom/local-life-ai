@@ -1,0 +1,12 @@
+{
+  "name": "skill-registry",
+  "version": "1.0.0",
+  "description": "Local Life AI Skill Platform - Skill Registry",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

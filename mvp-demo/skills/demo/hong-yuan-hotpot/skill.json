@@ -1,0 +1,29 @@
+{
+  "skill_id": "hong_001",
+  "skill_name": "宏缘火锅",
+  "merchant_id": "merchant_hong",
+  "version": "1.0.0",
+  "mcp_endpoint": "http://localhost:8002",
+  "categories": ["餐饮", "火锅", "排队", "预约"],
+  "capabilities": ["info", "queue", "menu", "delivery", "wifi", "news", "reservation"],
+  "location": {
+    "lat": 39.9589,
+    "lng": 116.312,
+    "address": "北京市海淀区学院路甲38号",
+    "branch": "学院路店"
+  },
+  "contact": {
+    "phone": "010-82345678",
+    "hours": "11:00-23:00"
+  },
+  "tools": [
+    { "name": "get_shop_info", "description": "获取店铺信息" },
+    { "name": "get_queue_status", "description": "获取排队状态" },
+    { "name": "take_queue_number", "description": "取号排队" },
+    { "name": "book_table", "description": "订座预约" },
+    { "name": "get_menu", "description": "获取菜单" },
+    { "name": "get_delivery_info", "description": "获取外卖信息" },
+    { "name": "get_wifi_info", "description": "获取Wi-Fi信息" },
+    { "name": "get_latest_news", "description": "获取最新活动" }
+  ]
+}

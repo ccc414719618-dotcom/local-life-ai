@@ -1,0 +1,172 @@
+#!/bin/bash
+# 商家端 AI 对接脚本 - CLI 工具
+# 让 AI Agent 能更容易地管理店铺
+
+set -e
+
+PLATFORM="http://localhost:3000"
+CONFIG_FILE="$HOME/.config/local-life-ai/merchant-config.json"
+
+# 颜色输出
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+# 检查配置
+check_config() {
+  if [ ! -f "$CONFIG_FILE" ]; then
+    echo -e "${RED}错误：未找到商家配置${NC}"
+    echo "请先运行安装脚本："
+    echo "curl http://localhost:3000/skills/merchant-connector/install.sh | bash"
+    exit 1
+  fi
+  shop_id=$(grep -o '"shop_id":"[^"]*"' "$CONFIG_FILE" | cut -d'"' -f4)
+}
+
+# 帮助
+help() {
+  echo "╔══════════════════════════════════════════════════════╗"
+  echo "║  🏪 本地生活 AI - 商家 CLI                   ║"
+  echo "╚══════════════════════════════════════════════════════╝"
+  echo ""
+  echo "用法: llm <命令> [参数]"
+  echo ""
+  echo "命令:"
+  echo "  status           查看店铺状态"
+  echo "  queue            查看排队情况"
+  echo "  info             查看店铺信息"
+  echo "  update-location  校准位置"
+  echo "  calibrate        打开校准页面"
+  echo "  help             显示帮助"
+  echo ""
+}
+
+# 店铺状态
+status() {
+  check_config
+  echo -e "${GREEN}=== 店铺状态 ===${NC}"
+  echo ""
+  
+  # 获取店铺信息
+  local info=$(curl -s "${PLATFORM}/mcp/${shop_id}/manifest.json" 2>/dev/null)
+  if [ -n "$info" ]; then
+    echo "$info" | python3 -c "
+import sys, json
+try:
+  data = json.load(sys.stdin)
+  print(f'名称: {data.get(\"service_name\")}')
+  print(f'地址: {data.get(\"location\", {}).get(\"address\", \"未知\")}')
+  print(f'服务: {', '.join(data.get('capabilities', []))}')
+except: pass
+"
+  fi
+  
+  echo ""
+  
+  # 获取排队情况
+  queue
+}
+
+# 排队情况
+queue() {
+  check_config
+  echo -e "${GREEN}=== 排队情况 ===${NC}"
+  echo ""
+  
+  curl -s -X POST "${PLATFORM}/mcp/${shop_id}/call" \
+    -H "Content-Type: application/json" \
+    -d '{"tool":"get_queue_status"}' | python3 -c "
+import sys, json
+try:
+  data = json.load(sys.stdin)
+  r = data.get('result', {})
+  print(f'当前等待: {r.get('current_wait', 0)} 桌')
+  print(f'平均等待: {r.get('avg_wait_minutes', 0)} 分钟')
+  print()
+  print('桌位状态:')
+  for t in r.get('available_tables', []):
+    st = '✅' if t.get('available') else '❌'
+    print(f'  {st} {t.get(\"name\")}')
+except: print('获取失败')
+"
+}
+
+# 店铺信息
+info() {
+  check_config
+  echo -e "${GREEN}=== 店铺信息 ===${NC}"
+  echo ""
+  
+  curl -s "${PLATFORM}/mcp/${shop_id}/manifest.json" | python3 -c "
+import sys, json
+try:
+  data = json.load(sys.stdin)
+  print(f'ID: {data.get(\"service_id\")}')
+  print(f'名称: {data.get(\"service_name\")}')
+  print(f'地址: {data.get(\"location\", {}).get(\"address\", \"未知\")}')
+  print(f'电话: {data.get(\"contact\", {}).get(\"phone\", \"未知\")}')
+  print(f'营业: {data.get(\"contact\", {}).get(\"hours\", \"未知\")}')
+  print()
+  print('服务能力:')
+  for c in data.get('capabilities', []):
+    print(f'  ✅ {c}')
+  print()
+  print('AI 设置:')
+  ai = data.get('ai_settings', {})
+  print(f'  欢迎语: {ai.get(\"welcome_message\", \"未设置\")}')
+except: print('获取失败')
+"
+}
+
+# 更新位置
+update_location() {
+  check_config
+  local lat="$1"
+  local lon="$2"
+  local address="$3"
+  
+  if [ -z "$lat" ] || [ -z "$lon" ]; then
+    echo -e "${YELLOW}用法: llm update-location <纬度> <经度> [地址]${NC}"
+    echo "示例: llm update-location 39.9633 116.308 北京市海淀区xx路"
+    exit 1
+  fi
+  
+  echo -e "${GREEN}更新位置...${NC}"
+  
+  local result=$(curl -s -X POST "${PLATFORM}/api/merchant/update-location" \
+    -H "Content-Type: application/x-www-form-urlencoded" \
+    -d "shop_id=${shop_id}&lat=${lat}&lon=${lon}&address=${address}")
+  
+  if echo "$result" | grep -q "位置已更新"; then
+    echo -e "${GREEN}✅ 位置已更新${NC}"
+  else
+    echo -e "${RED}❌ 更新失败${NC}"
+  fi
+}
+
+# 打开校准页面
+calibrate() {
+  check_config
+  echo -e "${GREEN}打开校准页面...${NC}"
+  echo ""
+  echo "请访问以下链接校准位置:"
+  echo -e "${YELLOW}http://localhost:3000/calibrate?id=${shop_id}${NC}"
+  echo ""
+  
+  # macOS
+  if [ "$(uname)" = "Darwin" ]; then
+    open "http://localhost:3000/calibrate?id=${shop_id}" 2>/dev/null || true
+  fi
+}
+
+# 主命令路由
+case "$1" in
+  status) status ;;
+  queue) queue ;;
+  info) info ;;
+  update-location) update_location "$2" "$3" "$4" ;;
+  calibrate) calibrate ;;
+  help|--help|-h) help ;;
+  *) help ;;
+esac

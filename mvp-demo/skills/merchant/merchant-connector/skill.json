@@ -1,0 +1,18 @@
+{
+  "name": "@local-life-ai/merchant",
+  "version": "1.0.0",
+  "description": "让商家的 AI Agent 接入本地生活平台，7x24自动接待客户",
+  "author": "Local Life AI Platform",
+  "license": "MIT",
+  "homepage": "http://localhost:3000",
+  "keywords": ["local-life", "merchant", "restaurant", "queue", "接待", "客服"],
+  "platform": "openclaw",
+  "install": {
+    "type": "script",
+    "script": "./install.sh"
+  },
+  "config": {
+    "endpoint": "http://localhost:3000",
+    "mcp_endpoint": "/mcp/{shop_id}"
+  }
+}

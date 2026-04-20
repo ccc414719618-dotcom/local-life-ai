@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本地生活 AI 平台 - 极简接入</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0f;
+      color: #e5e5e7;
+      min-height: 100vh;
+    }
+    
+    header {
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #2d2d44;
+    }
+    .logo { font-size: 20px; font-weight: 700; }
+    
+    .hero {
+      text-align: center;
+      padding: 50px 24px;
+      background: radial-gradient(ellipse at center, #1a1a3e 0%, #0a0a0f 70%);
+    }
+    .hero h1 { font-size: 32px; margin-bottom: 10px; }
+    .hero p { font-size: 14px; color: #a1a1aa; max-width: 500px; margin: 0 auto 20px; line-height: 1.6; }
+    .badge {
+      display: inline-block;
+      background: rgba(139, 92, 246, 0.2);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: #a78bfa;
+      margin-bottom: 16px;
+    }
+    
+    .install-section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 30px 24px;
+    }
+    .install-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .install-card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+      border: 1px solid #2d2d44;
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+    }
+    .install-card.user { border-color: rgba(59, 130, 246, 0.4); }
+    .install-card.merchant { border-color: rgba(16, 185, 129, 0.4); }
+    .install-icon { font-size: 40px; margin-bottom: 12px; }
+    .install-card h2 { font-size: 16px; margin-bottom: 4px; }
+    .install-card > p { color: #a1a1aa; font-size: 12px; margin-bottom: 14px; line-height: 1.5; }
+    
+    .install-cmd {
+      background: #0a0a0f;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 11px;
+      color: #10b981;
+      overflow-x: auto;
+      margin-bottom: 10px;
+    }
+    
+    .or-divider {
+      text-align: center;
+      padding: 20px 0;
+      color: #52525b;
+      font-size: 12px;
+    }
+    
+    /* Download section */
+    .download-section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px 24px;
+    }
+    .download-card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+      border: 1px solid #2d2d44;
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+    }
+    .download-card h3 { font-size: 16px; margin-bottom: 8px; }
+    .download-card p { color: #a1a1aa; font-size: 12px; margin-bottom: 16px; }
+    
+    .download-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .download-btn:hover { opacity: 0.9; }
+    
+    /* Merchants */
+    .merchants-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 24px;
+      border-top: 1px solid #2d2d44;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .section-title { font-size: 16px; font-weight: 600; }
+    .human-badge {
+      font-size: 10px;
+      color: #71717a;
+      background: #1a1a1a;
+      padding: 3px 8px;
+      border-radius: 10px;
+    }
+    
+    .merchants-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .merchant-card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+      border: 1px solid #2d2d44;
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .merchant-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+    .merchant-meta { font-size: 11px; color: #71717a; margin-bottom: 6px; line-height: 1.4; }
+    .capabilities { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 6px; }
+    .cap-tag {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 9px;
+    }
+    .health-tags { display: flex; flex-wrap: wrap; gap: 3px; }
+    .health-tag { padding: 2px 6px; border-radius: 4px; font-size: 9px; }
+    .health-tag.safe { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+    .health-tag.warning { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+    
+    .ai-note {
+      font-size: 10px;
+      color: #52525b;
+      background: #0f0f0f;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-top: 12px;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 30px 24px;
+      border-top: 1px solid #2d2d44;
+      color: #71717a;
+      font-size: 11px;
+    }
+    
+    .loading { text-align: center; padding: 30px; color: #71717a; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🏪 本地生活 AI 平台</div>
+  </header>
+  
+  <section class="hero">
+    <div class="badge">🤖 AI-First Platform</div>
+    <h1>让 AI 连接每一个好店</h1>
+    <p>给 AI 一条命令，AI 就能发现附近的服务、预约排队。<br>数据存储在 AI 端，平台只做发现层。</p>
+  </section>
+  
+  <section class="install-section">
+    <div class="install-grid">
+      <!-- 用户接入 -->
+      <div class="install-card user">
+        <div class="install-icon">👤</div>
+        <h2>我是用户</h2>
+        <p>让 AI 发现附近服务、预约排队、管理健康偏好</p>
+        <div class="install-cmd">skill install @local-life-ai/user-connector</div>
+        <small style="color: #52525b; font-size: 10px;">安装后配置健康偏好即可使用</small>
+      </div>
+      
+      <!-- 商家接入 -->
+      <div class="install-card merchant">
+        <div class="install-icon">🏪</div>
+        <h2>我是商家</h2>
+        <p>让 AI 7x24 自动接待、管理排队预约</p>
+        <div class="install-cmd">skill install @local-life-ai/merchant-connector</div>
+        <small style="color: #52525b; font-size: 10px;">安装后配置店铺信息即可上线</small>
+      </div>
+    </div>
+  </section>
+  
+  <section class="download-section">
+    <div class="download-card">
+      <h3>📦 手动下载安装</h3>
+      <p>如果 skill 命令不可用，可以直接下载安装脚本</p>
+      <div style="margin-top: 16px; display: flex; gap: 12px; justify-content: center;">
+        <a class="download-btn" href="/skills/user/user-connector/install.sh" download>👤 下载用户安装脚本</a>
+        <a class="download-btn" href="/skills/merchant/merchant-connector/install.sh" download>🏪 下载商家安装脚本</a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="merchants-section">
+    <div class="section-header">
+      <h2 class="section-title">🏪 已入驻商家</h2>
+      <span class="human-badge">👁️ 人类查看</span>
+    </div>
+    
+    <div id="merchants-container">
+      <div class="loading">加载中...</div>
+    </div>
+    
+    <div class="ai-note">
+      💡 AI 发现这些商家：<code>/mcp-manifest.json</code>
+    </div>
+  </section>
+  
+  <footer>
+    <p>本地生活 AI 平台 · AI-First Discovery</p>
+    <p style="margin-top: 6px;">平台只做发现层，数据在 AI 端</p>
+  </footer>
+  
+  <script>
+    async function loadMerchants() {
+      try {
+        const res = await fetch('/mcp-manifest.json');
+        const data = await res.json();
+        const container = document.getElementById('merchants-container');
+        
+        if (!data.services || data.services.length === 0) {
+          container.innerHTML = '<p style="text-align: center; color: #71717a;">暂无商家入驻</p>';
+          return;
+        }
+        
+        container.innerHTML = '<div class="merchants-grid">' + 
+          data.services.map(s => {
+            const healthTags = s.health_tags || {};
+            const labels = healthTags.health_labels || [];
+            const allergens = healthTags.allergens || [];
+            
+            const healthHtml = labels.map(h => 
+              `<span class="health-tag safe">✅ ${h}</span>`
+            ).join('') + allergens.map(a => 
+              `<span class="health-tag warning">⚠️ ${a}</span>`
+            ).join('');
+            
+            return `
+              <div class="merchant-card">
+                <div class="merchant-name">🏪 ${s.name}</div>
+                <div class="merchant-meta">📍 ${s.location.address}</div>
+                <div class="capabilities">
+                  ${s.capabilities.map(c => `<span class="cap-tag">${c}</span>`).join('')}
+                </div>
+                ${healthHtml ? `<div class="health-tags">${healthHtml}</div>` : ''}
+              </div>
+            `;
+          }).join('') + '</div>';
+      } catch (e) {
+        document.getElementById('merchants-container').innerHTML = 
+          '<p style="text-align: center; color: #ef4444;">加载失败</p>';
+      }
+    }
+    
+    loadMerchants();
+  </script>
+</body>
+</html>

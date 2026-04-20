@@ -1,0 +1,19 @@
+{
+  "name": "@local-life-ai/user",
+  "version": "1.0.0",
+  "description": "让用户的 AI Agent 接入本地生活平台，发现附近服务、预约排队",
+  "author": "Local Life AI Platform",
+  "license": "MIT",
+  "homepage": "http://localhost:3000",
+  "keywords": ["local-life", "discovery", "food", "restaurant", "queue", "reservation"],
+  "platform": "openclaw",
+  "install": {
+    "type": "script",
+    "script": "./install.sh"
+  },
+  "config": {
+    "endpoint": "http://localhost:3000",
+    "manifest_endpoint": "/mcp-manifest.json",
+    "search_endpoint": "/mcp/search"
+  }
+}

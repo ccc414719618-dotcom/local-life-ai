@@ -1,0 +1,237 @@
+{
+  "skills": [
+    {
+      "skill_id": "jin_001",
+      "skill_name": "金谷园饺子馆",
+      "merchant_id": "merchant_jin",
+      "categories": [
+        "餐饮",
+        "饺子",
+        "排队"
+      ],
+      "location": {
+        "lat": 39.9633,
+        "lng": 116.308,
+        "address": "北京市海淀区新地址",
+        "branch": "北邮店",
+        "lon": 116.308
+      },
+      "mcp_endpoint": "http://localhost:8001",
+      "version": "0.4.2",
+      "auth_required": false,
+      "capabilities": [
+        "queue",
+        "delivery",
+        "wifi",
+        "info",
+        "menu"
+      ],
+      "created_at": "2026-04-01",
+      "updated_at": "2026-04-20",
+      "contact": {
+        "phone": "010-62301234",
+        "hours": "10:00-22:00"
+      },
+      "health_tags": {
+        "dietary_options": [
+          "普通",
+          "无辣"
+        ],
+        "health_labels": [
+          "低油脂"
+        ],
+        "allergens": [
+          "麸质"
+        ],
+        "ai_settings": {
+          "welcome_message": "您好，欢迎光临金谷园饺子馆！我是您的AI助手小金，很高兴为您服务。请问今天想吃点什么？",
+          "queue_response": "目前排队情况：{wait_count}桌，预计等待{wait_minutes}分钟。是否需要帮您取号？"
+        }
+      }
+    },
+    {
+      "skill_id": "hong_001",
+      "skill_name": "宏缘火锅",
+      "merchant_id": "merchant_hong",
+      "categories": [
+        "餐饮",
+        "火锅",
+        "排队"
+      ],
+      "location": {
+        "lat": 39.9589,
+        "lng": 116.312,
+        "address": "北京市海淀区学院路甲38号",
+        "branch": "学院路店"
+      },
+      "mcp_endpoint": "http://localhost:8002",
+      "version": "1.0.0",
+      "auth_required": false,
+      "capabilities": [
+        "queue",
+        "delivery",
+        "wifi",
+        "info",
+        "menu",
+        "reservation"
+      ],
+      "created_at": "2026-04-10",
+      "updated_at": "2026-04-20",
+      "contact": {
+        "phone": "010-82345678",
+        "hours": "11:00-23:00"
+      },
+      "health_tags": {
+        "dietary_options": [
+          "普通",
+          "微辣",
+          "中辣",
+          "重辣"
+        ],
+        "health_labels": [],
+        "allergens": [],
+        "ai_settings": {
+          "welcome_message": "您好，欢迎光临宏缘火锅！我是您的AI助手小缘，天气冷了，来一顿火锅暖暖身子吧！请问今天几位用餐？",
+          "queue_response": "目前排队情况：{wait_count}桌，预计等待{wait_minutes}分钟。是否需要帮您取号？"
+        }
+      }
+    },
+    {
+      "skill_id": "ji_001",
+      "skill_name": "季多西面馆",
+      "merchant_id": "merchant_ji",
+      "categories": [
+        "餐饮",
+        "面馆",
+        "快餐"
+      ],
+      "location": {
+        "lat": 39.9612,
+        "lng": 116.306,
+        "address": "北京市海淀区西土城路10号",
+        "branch": "北邮店"
+      },
+      "mcp_endpoint": "http://localhost:8003",
+      "version": "1.0.0",
+      "auth_required": false,
+      "capabilities": [
+        "delivery",
+        "wifi",
+        "info",
+        "menu"
+      ],
+      "created_at": "2026-04-12",
+      "updated_at": "2026-04-20",
+      "contact": {
+        "phone": "010-62234567",
+        "hours": "07:00-21:00"
+      },
+      "health_tags": {
+        "dietary_options": [
+          "普通",
+          "无辣",
+          "清真"
+        ],
+        "health_labels": [
+          "快餐"
+        ],
+        "allergens": [
+          "麸质"
+        ],
+        "ai_settings": {
+          "welcome_message": "您好，欢迎光临季多西面馆！我是您的AI助手小季，今天想来点什么？我们的牛肉面和炸酱面都很受欢迎哦！",
+          "queue_response": "本店无需排队，欢迎随时光临！"
+        }
+      }
+    },
+    {
+      "skill_id": "xing_001",
+      "skill_name": "兴华家常菜",
+      "merchant_id": "merchant_xing",
+      "categories": [
+        "餐饮",
+        "家常菜",
+        "聚餐"
+      ],
+      "location": {
+        "lat": 39.9556,
+        "lng": 116.315,
+        "address": "北京市海淀区成府路28号",
+        "branch": "五道口店"
+      },
+      "mcp_endpoint": "http://localhost:8004",
+      "version": "1.0.0",
+      "auth_required": false,
+      "capabilities": [
+        "queue",
+        "delivery",
+        "wifi",
+        "info",
+        "menu",
+        "reservation"
+      ],
+      "created_at": "2026-04-15",
+      "updated_at": "2026-04-20",
+      "contact": {
+        "phone": "010-82346789",
+        "hours": "10:30-22:30"
+      },
+      "health_tags": {
+        "dietary_options": [
+          "普通",
+          "无辣",
+          "少油"
+        ],
+        "health_labels": [
+          "家常菜"
+        ],
+        "allergens": [],
+        "ai_settings": {
+          "welcome_message": "您好，欢迎光临兴华家常菜！我是您的AI助手小兴，我们有各种实惠的家常菜，适合家庭聚餐或朋友小聚！请问今天需要预约吗？",
+          "queue_response": "目前排队情况：{wait_count}桌，预计等待{wait_minutes}分钟。是否需要帮您取号？"
+        }
+      }
+    },
+    {
+      "skill_id": "test_shop_001",
+      "skill_name": "测试饺子馆",
+      "categories": [
+        "餐饮",
+        "饺子"
+      ],
+      "location": {
+        "address": "北京测试",
+        "hours": "10:00-22:00"
+      },
+      "contact": {
+        "phone": "010-12345678",
+        "hours": "10:00-22:00"
+      },
+      "capabilities": [
+        "queue",
+        "reservation",
+        "menu",
+        "info"
+      ],
+      "health_tags": {
+        "health_labels": [
+          "低油脂",
+          "无麸质"
+        ]
+      },
+      "version": "1.0.0",
+      "updated_at": "2026-04-20"
+    }
+  ],
+  "meta": {
+    "total": 4,
+    "platform": "本地生活 AI Skill 平台",
+    "version": "0.2.0",
+    "updated_at": "2026-04-20T08:00:00Z",
+    "features": {
+      "health_filtering": true,
+      "ai_recommendation": true,
+      "merchant_ai_settings": true
+    }
+  }
+}

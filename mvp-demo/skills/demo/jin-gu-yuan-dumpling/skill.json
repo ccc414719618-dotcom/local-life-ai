@@ -1,0 +1,104 @@
+{
+  "skill_id": "jin_001",
+  "skill_name": "金谷园饺子馆",
+  "merchant_id": "merchant_jin",
+  "version": "0.4.2",
+  "mcp_endpoint": "http://localhost:8001",
+  "categories": ["餐饮", "饺子", "排队"],
+  "capabilities": ["info", "queue", "menu", "delivery", "wifi", "news"],
+  "location": {
+    "lat": 39.9633,
+    "lng": 116.308,
+    "address": "北京市海淀区杏坛路文教产业园K座南2层",
+    "branch": "北邮店"
+  },
+  "contact": {
+    "phone": "010-62301234",
+    "hours": "10:00-22:00"
+  },
+  "tools": [
+    {
+      "name": "get_shop_info",
+      "description": "获取金谷园饺子馆的店铺信息",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "get_queue_status",
+      "description": "获取当前排队状态",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "table_type_id": {
+            "type": "integer",
+            "description": "桌型编号（1=小桌2人, 2=中桌4人, 3=大桌6人, 4=包间10人）",
+            "default": 1
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "take_queue_number",
+      "description": "取号排队",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "table_type_id": {
+            "type": "integer",
+            "description": "桌型编号（1=小桌2人, 2=中桌4人, 3=大桌6人）"
+          },
+          "people_count": {
+            "type": "integer",
+            "description": "就餐人数"
+          }
+        },
+        "required": ["table_type_id", "people_count"]
+      }
+    },
+    {
+      "name": "get_menu",
+      "description": "获取菜单",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "菜品分类（不填则返回全部）"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "get_delivery_info",
+      "description": "获取外卖配送信息",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "get_wifi_info",
+      "description": "获取Wi-Fi信息",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "get_latest_news",
+      "description": "获取最新活动",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ]
+}

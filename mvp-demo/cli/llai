@@ -1,0 +1,164 @@
+#!/bin/bash
+# 用户端 AI 对接 CLI - 让 Agent 更易操作
+
+set -e
+
+PLATFORM="${LLAIP_PLATFORM:-http://localhost:3000}"
+USER_CONFIG="$HOME/.config/local-life-ai/user-config.json"
+
+# 检查配置
+check_config() {
+  if [ ! -f "$USER_CONFIG" ]; then
+    echo "Error: User config not found"
+    echo "Run: curl http://localhost:3000/skills/user-connector/install.sh | bash"
+    exit 1
+  fi
+}
+
+# 搜索服务
+user_search() {
+  local query="$1"
+  [ -z "$query" ] && echo "Usage: llai search <query>" && exit 1
+  
+  echo "== Search: $query =="
+  
+  local encoded=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$query'))")
+  local results=$(curl -s "${PLATFORM}/mcp/search?q=${encoded}")
+  
+  local count=$(echo "$results" | python3 -c "import sys,json; print(json.load(sys.stdin).get('total', 0))" 2>/dev/null || echo "0")
+  
+  if [ "$count" = "0" ] || [ -z "$count" ]; then
+    echo "No results found"
+    exit 0
+  fi
+  
+  echo "Found $count result(s):"
+  echo "$results" | python3 -c "
+import sys, json
+data = json.load(sys.stdin)
+for r in data.get('results', []):
+  print(f\"  - {r.get('name')}: {r.get('location', {}).get('address', 'no address')}\")
+"
+}
+
+# 发现服务
+user_discover() {
+  check_config
+  echo "== Discover Services =="
+  
+  local services=$(curl -s "${PLATFORM}/mcp-manifest.json")
+  local count=$(echo "$services" | python3 -c "import sys,json; print(len(json.load(sys.stdin).get('services', [])))")
+  
+  echo "Total: $count services"
+  echo ""
+  
+  echo "$services" | python3 -c "
+import sys, json
+data = json.load(sys.stdin)
+for s in data.get('services', []):
+  print(f\"{s.get('name')}\")
+  print(f\"  Address: {s.get('location', {}).get('address', 'unknown')}\")
+  print(f\"  Services: {', '.join(s.get('capabilities', []))}\")
+  print()
+"
+}
+
+# 排队状态
+user_queue() {
+  local shop_id="$1"
+  [ -z "$shop_id" ] && echo "Usage: llai queue <service_id>" && exit 1
+  
+  echo "== Queue Status: $shop_id =="
+  
+  curl -s -X POST "${PLATFORM}/mcp/${shop_id}/call" \
+    -H "Content-Type: application/json" \
+    -d '{"tool":"get_queue_status"}' | python3 -c "
+import sys, json
+data = json.load(sys.stdin)
+r = data.get('result', {})
+print(f\"Waiting: {r.get('current_wait', 0)} tables\")
+print(f\"Est. wait: {r.get('avg_wait_minutes', 0)} minutes\")
+print()
+print('Tables:')
+for t in r.get('available_tables', []):
+  st = 'OK' if t.get('available') else 'BUSY'
+  print(f\"  [{st}] {t.get('name')}\")
+"
+}
+
+# 取号
+user_take() {
+  local shop_id="$1"
+  local table_type="${2:-1}"
+  local people="${3:-2}"
+  
+  [ -z "$shop_id" ] && echo "Usage: llai take <service_id> [table_type] [people]" && exit 1
+  
+  echo "== Taking Queue: $shop_id =="
+  
+  curl -s -X POST "${PLATFORM}/mcp/${shop_id}/call" \
+    -H "Content-Type: application/json" \
+    -d "{\"tool\":\"take_queue_number\",\"parameters\":{\"table_type_id\":${table_type},\"people_count\":${people}}}" | python3 -c "
+import sys, json
+data = json.load(sys.stdin)
+r = data.get('result', {})
+print(f\"Success! Queue #: {r.get('queue_number')}\")
+print(f\"Est. wait: {r.get('estimated_wait_minutes')} minutes\")
+"
+}
+
+# 预约
+user_book() {
+  local shop_id="$1"
+  local date="$2"
+  local time="$3"
+  local people="${4:-2}"
+  
+  [ -z "$shop_id" ] || [ -z "$date" ] || [ -z "$time" ] && echo "Usage: llai book <service_id> <date> <time> [people]" && exit 1
+  
+  echo "== Booking: $shop_id =="
+  
+  curl -s -X POST "${PLATFORM}/mcp/${shop_id}/call" \
+    -H "Content-Type: application/json" \
+    -d "{\"tool\":\"book_table\",\"parameters\":{\"date\":\"$date\",\"time\":\"$time\",\"people_count\":$people}}" | python3 -c "
+import sys, json
+data = json.load(sys.stdin)
+r = data.get('result', {})
+print(f\"Booked! ID: {r.get('booking_id')}\")
+print(f\"Time: {r.get('date')} {r.get('time')}\")
+print(f\"People: {r.get('people_count')}\")
+"
+}
+
+# 帮助
+help() {
+  echo "Local Life AI CLI"
+  echo ""
+  echo "Usage: llai <command> [options]"
+  echo ""
+  echo "Commands:"
+  echo "  discover              List all services"
+  echo "  search <query>        Search services"
+  echo "  queue <service_id>    Get queue status"
+  echo "  take <service_id>      Take a queue number"
+  echo "  book <service_id> <date> <time> [people]  Book a table"
+  echo "  help                 Show this help"
+  echo ""
+  echo "Examples:"
+  echo "  llai discover"
+  echo "  llai search hotpot"
+  echo "  llai queue jin_001"
+  echo "  llai take jin_001 1 2"
+  echo "  llai book jin_001 2024-04-21 19:00 3"
+}
+
+# 主命令
+case "$1" in
+  discover) user_discover ;;
+  search) user_search "$2" ;;
+  queue) user_queue "$2" ;;
+  take) user_take "$2" "$3" "$4" ;;
+  book) user_book "$2" "$3" "$4" "$5" ;;
+  help|--help|-h) help ;;
+  *) help ;;
+esac

@@ -1,0 +1,29 @@
+{
+  "skill_id": "xing_001",
+  "skill_name": "兴华家常菜",
+  "merchant_id": "merchant_xing",
+  "version": "1.0.0",
+  "mcp_endpoint": "http://localhost:8004",
+  "categories": ["餐饮", "家常菜", "聚餐", "排队", "预约"],
+  "capabilities": ["info", "queue", "menu", "delivery", "wifi", "news", "reservation"],
+  "location": {
+    "lat": 39.9556,
+    "lng": 116.315,
+    "address": "北京市海淀区成府路28号",
+    "branch": "五道口店"
+  },
+  "contact": {
+    "phone": "010-82346789",
+    "hours": "10:30-22:30"
+  },
+  "tools": [
+    { "name": "get_shop_info", "description": "获取店铺信息" },
+    { "name": "get_queue_status", "description": "获取排队状态" },
+    { "name": "take_queue_number", "description": "取号排队" },
+    { "name": "book_table", "description": "订座预约" },
+    { "name": "get_menu", "description": "获取菜单" },
+    { "name": "get_delivery_info", "description": "获取外卖信息" },
+    { "name": "get_wifi_info", "description": "获取Wi-Fi信息" },
+    { "name": "get_latest_news", "description": "获取最新活动" }
+  ]
+}
